@@ -60,9 +60,11 @@ public class Server {
 	}
 
 	private void loop() throws IOException {
-		System.out.println("Waiting new connection");
-		handle(serverSocket.accept());
-		loop();
+		System.out.println("Waiting connection(s)");
+
+		while (true) {
+			handle(serverSocket.accept());
+		}
 	}
 
 	private void handle(Socket connection) {
